@@ -2,6 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script allows smoothly move between scenes using the screen fade
+/// </summary>
+
 public class SmoothSceneSwitcher : MonoBehaviour
 {
     [SerializeField] private GameObject sceneSwitcherCanvas;
