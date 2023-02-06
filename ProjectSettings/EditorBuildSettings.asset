@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene_GUMRF_Lobby.unity
     guid: d4fdd217a45e66c4d821a1b0db4619b7
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d7705486950a4b54a8ee4506657b780a,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 71aff537a41e49a45880546f4ea4dd2d,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f1a2ffcfb7bbac94792c896b79445a74,
       type: 2}
