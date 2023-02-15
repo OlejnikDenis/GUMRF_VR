@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 5cb461e71344379429f0770506c3b8bb
+labels:
+- Xr
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
