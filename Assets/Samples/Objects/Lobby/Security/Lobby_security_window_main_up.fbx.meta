@@ -3,12 +3,7 @@ guid: 352d85341fe36a646ab5338ee55c01f0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: window_so_storoni_turniketov_verx
-    second: {fileID: 2100000, guid: e71addba9bb1d5542aa2071efa77a868, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
