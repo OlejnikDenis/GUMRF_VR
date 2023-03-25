@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 032a410cbc174da49a80067019399768
+guid: 4050bf97b4d669f4db426afff57b5d5e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Lab_Timenov
-    second: {fileID: 2100000, guid: c99a41511b110be43a061372bfd597f0, type: 2}
+      name: Stairs
+    second: {fileID: 2100000, guid: 378e296d0cc62c74a8c05226d8515929, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

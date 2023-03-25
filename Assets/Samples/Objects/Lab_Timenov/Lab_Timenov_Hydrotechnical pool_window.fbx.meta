@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 4050bf97b4d669f4db426afff57b5d5e
+guid: 1597c0f92ff08fa42af4adfb82834e7e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hydrotechnical pool_window
+    second: {fileID: 2100000, guid: bdc85672038472442a8078d882493abf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
