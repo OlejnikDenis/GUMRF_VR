@@ -3,12 +3,7 @@ guid: 032a410cbc174da49a80067019399768
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Lab_Timenov
-    second: {fileID: 2100000, guid: c99a41511b110be43a061372bfd597f0, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
