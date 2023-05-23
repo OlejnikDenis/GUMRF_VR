@@ -40,6 +40,26 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-6384025704376747427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b862ee14fb479fbfe5fffe655d3ed3, type: 3}
+  m_Name: MetaQuestTouchProControllerProfile WSA
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meta Quest Touch Pro Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.metaquestpro
+  openxrExtensionStrings: XR_FB_touch_controller_pro
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &-5245618199271746384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +233,7 @@ MonoBehaviour:
   - {fileID: -8568187437894264754}
   - {fileID: 7428803836601248396}
   - {fileID: -5245618199271746384}
+  - {fileID: -6384025704376747427}
   - {fileID: 2693177751718773368}
   - {fileID: -7328635596733917255}
   - {fileID: 1930552090437485497}
@@ -318,6 +339,7 @@ MonoBehaviour:
   - {fileID: 491939795162822475}
   - {fileID: 787893673412725442}
   - {fileID: 7559228760707852039}
+  - {fileID: 6091361387429234876}
   - {fileID: 6694109870037724211}
   - {fileID: 6463810382248531875}
   - {fileID: 2082315120869194287}
@@ -348,6 +370,26 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+--- !u!114 &6091361387429234876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b862ee14fb479fbfe5fffe655d3ed3, type: 3}
+  m_Name: MetaQuestTouchProControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meta Quest Touch Pro Controller Profile
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.input.metaquestpro
+  openxrExtensionStrings: XR_FB_touch_controller_pro
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &6368299134479774354
 MonoBehaviour:
   m_ObjectHideFlags: 0
