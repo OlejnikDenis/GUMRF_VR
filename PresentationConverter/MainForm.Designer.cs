@@ -34,8 +34,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonSelectFile = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
+            this.buttonSelectFile = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,17 +50,17 @@
             this.comboBoxLocation.FormattingEnabled = true;
             this.comboBoxLocation.Location = new System.Drawing.Point(3, 12);
             this.comboBoxLocation.Name = "comboBoxLocation";
-            this.comboBoxLocation.Size = new System.Drawing.Size(156, 21);
+            this.comboBoxLocation.Size = new System.Drawing.Size(92, 21);
             this.comboBoxLocation.Sorted = true;
             this.comboBoxLocation.TabIndex = 1;
             // 
             // textBoxPath
             // 
             this.textBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPath.Location = new System.Drawing.Point(165, 13);
+            this.textBoxPath.Location = new System.Drawing.Point(101, 13);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.ReadOnly = true;
-            this.textBoxPath.Size = new System.Drawing.Size(366, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(388, 20);
             this.textBoxPath.TabIndex = 2;
             // 
             // statusStrip1
@@ -99,26 +99,27 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(658, 92);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
+            // buttonSubmit
+            // 
+            this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSubmit.Location = new System.Drawing.Point(495, 58);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(160, 22);
+            this.buttonSubmit.TabIndex = 4;
+            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            // 
             // buttonSelectFile
             // 
             this.buttonSelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSelectFile.Location = new System.Drawing.Point(537, 12);
+            this.buttonSelectFile.Location = new System.Drawing.Point(495, 12);
             this.buttonSelectFile.Name = "buttonSelectFile";
-            this.buttonSelectFile.Size = new System.Drawing.Size(118, 22);
+            this.buttonSelectFile.Size = new System.Drawing.Size(160, 22);
             this.buttonSelectFile.TabIndex = 3;
             this.buttonSelectFile.Text = "Select";
             this.buttonSelectFile.UseVisualStyleBackColor = true;
             this.buttonSelectFile.Click += new System.EventHandler(this.buttonSelectFile_Click);
-            // 
-            // buttonSubmit
-            // 
-            this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSubmit.Location = new System.Drawing.Point(537, 58);
-            this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(118, 22);
-            this.buttonSubmit.TabIndex = 4;
-            this.buttonSubmit.Text = "Submit";
-            this.buttonSubmit.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -7,6 +7,7 @@ namespace PresentationConverter
     public partial class MainForm : Form
     {
         private MessageService _messageService;
+
         public MainForm()
         {
             InitializeComponent();
@@ -14,6 +15,7 @@ namespace PresentationConverter
             SetupComboBoxValues();
 
             _messageService = new MessageService(toolStripStatusLabel);
+            _messageService.SentMessage("Готов к работе");
 
             openFileDialog.Filter = "Презентация PowerPoint (*.pptx)|*.pptx|Презентация PowerPoint 93-2003 (*.ppt)|*.ppt|Все файлы (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
@@ -38,16 +40,19 @@ namespace PresentationConverter
         }
 
 
-
         private void buttonSelectFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
 
-            //string filePath = openFileDialog
             string filename = openFileDialog.FileName;
 
             textBoxPath.Text = filename;
             _messageService.SentMessage($"Загружено: {filename}");
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            Converter.ConvertToImage(textBoxPath.Text, "");
         }
     }
 }
