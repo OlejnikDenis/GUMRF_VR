@@ -25,7 +25,8 @@ namespace Assets.Scripts.Media
         
         private Renderer _renderer;
         private ImageSearcher _imageSearcher;
-
+        private Coroutine _autoShowNextCoroutine;
+        
         public Action<int> OnImageChanged;
         public Action<string> OnErrorReceived;
         
@@ -34,8 +35,8 @@ namespace Assets.Scripts.Media
             _renderer = GetComponent<Renderer>();
             _imageSearcher = GetComponent<ImageSearcher>();
             images = _imageSearcher.imagePaths;
-            
-            StartCoroutine(ShowNextImageAutomatically(AutoShowNextInterval));
+
+            ToggleAutoShowNext();
         }
         
         #region Presentation slide controller
@@ -94,7 +95,7 @@ namespace Assets.Scripts.Media
             currentImageIndex--;
             ShowImage(images[currentImageIndex]);
         }
-    
+
         /// <summary>
         /// Automatically shows the next image in the list of images every `switchIntervalSeconds`  while `AutoShowNext` is true.
         /// </summary>
@@ -109,7 +110,27 @@ namespace Assets.Scripts.Media
                 yield return new WaitForSeconds(switchIntervalSeconds);
             }
         }
+        
+        /// <summary>
+        /// Enables or disables the automatic switching of images.
+        /// </summary>
+        public void ToggleAutoShowNext()
+        {
+            // Set the AutoShowNext variable to the given value
+            AutoShowNext = !AutoShowNext;
 
+            // Start or stop the coroutine based on the value of AutoShowNext
+            if (AutoShowNext && _autoShowNextCoroutine == null)
+            {
+                _autoShowNextCoroutine = StartCoroutine(ShowNextImageAutomatically(AutoShowNextInterval));
+            }
+            else if (!AutoShowNext && _autoShowNextCoroutine != null)
+            {
+                StopCoroutine(_autoShowNextCoroutine);
+                _autoShowNextCoroutine = null;
+            }
+        }
+        
         #endregion
     }
 }
