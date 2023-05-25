@@ -1,35 +1,56 @@
 ﻿using Microsoft.Office.Interop.PowerPoint;
 using System.IO;
 using Microsoft.Office.Core;
+using System.Windows.Forms;
+using PPTApplication = Microsoft.Office.Interop.PowerPoint.Application;
 
 namespace PresentationConverter
 {
     public class Converter
     {
-        public static void ConvertToImage(string inputFilePath, string outputFolderPath, string imageExtension = "jpg")
+        private static Presentation _presentation;
+        private static PPTApplication _app;
+
+        public static void ConvertToImage(string inputFilePath, string outputFolderPath, string imageExtension = ".jpg")
         {
-            Application app = new Application();
-
-            Presentation presentation = app.Presentations.Open(inputFilePath, MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse);
-
-            int slideWidth = (int)presentation.PageSetup.SlideWidth;
-            int slideHeight = (int)presentation.PageSetup.SlideHeight;
-
-            for (int i = 1; i <= presentation.Slides.Count; i++)
+            try
             {
-                Slide slide = presentation.Slides[i];
-                string outputPath = Path.Combine(outputFolderPath, $"Slide_{i:D3}.{imageExtension}");
+                _app = new PPTApplication();
 
-                if (File.Exists(outputPath))
+                _presentation = _app.Presentations.Open(inputFilePath, MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse);
+
+                int slideWidth = (int)_presentation.PageSetup.SlideWidth;
+                int slideHeight = (int)_presentation.PageSetup.SlideHeight;
+
+                for (int i = 1; i <= _presentation.Slides.Count; i++)
                 {
-                    File.Delete(outputPath);
+                    Slide slide = _presentation.Slides[i];
+                    string outputPath = Path.Combine(outputFolderPath, $"Slide_{i:D3}.{imageExtension}");
+
+                    if (!Directory.Exists(outputPath))
+                    {
+                        Directory.CreateDirectory(outputPath);
+                    }
+
+                    if (File.Exists(outputPath))
+                    {
+                        File.Delete(outputPath);
+                    }
+                    slide.Export(outputPath, imageExtension, slideWidth, slideHeight);
                 }
 
-                slide.Export(outputPath, imageExtension, slideWidth, slideHeight);
+                _presentation.Close();
+                _app.Quit();
             }
+            catch (System.Exception e)
+            {
 
-            presentation.Close();
-            app.Quit();
+                var dialog = MessageBox.Show(e.Message, $"Ошибка", MessageBoxButtons.RetryCancel,MessageBoxIcon.Error);
+                if (dialog == DialogResult.Retry)
+                {
+                    ConvertToImage(inputFilePath, outputFolderPath);
+                }
+            }
         }
     }
 }
