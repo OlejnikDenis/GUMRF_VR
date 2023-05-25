@@ -10,8 +10,6 @@ namespace PresentationConverter
         private MessageService _messageService;
         private PathSelectorForm _pathSelectorForm;
 
-        private string _unityAppPath = "D:\\Projects\\Unity\\GUMRF_VR";
-
         public MainForm()
         {
             InitializeComponent();
@@ -47,23 +45,29 @@ namespace PresentationConverter
             string filename = openFileDialog.FileName;
 
             textBoxPath.Text = filename;
-            _messageService.SentMessage($"Открыто: {filename}");
+            _messageService.SentMessage($"Открыто: {filename}.");
+            buttonSubmit.Enabled = true;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            var subfolder = "test";
+            var subfolder = comboBoxLocation.SelectedValue.ToString();
+            var _unityAppPath = ConfigLoader.GetTempFileData();
+
             Converter.ConvertToImage(textBoxPath.Text, $"{_unityAppPath}\\Assets\\Media\\{subfolder}");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (!ConfigLoader.TempFileExists())
+            if (!ConfigLoader.TempFileExists() || !ConfigLoader.TempFileCorrect())
             {
+                _messageService.SentMessage("Файл конфигурации не найден.");
+
                 _pathSelectorForm = new PathSelectorForm();
                 _pathSelectorForm.ShowDialog();
             }
-            
+            _messageService.SentMessage("Готов к работе.");
+
         }
     }
 }
