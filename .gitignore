@@ -73,3 +73,7 @@ crashlytics-build.properties
 
 # JetBrains
 /.idea/*
+
+
+# Media folder
+/[Aa]ssets/[Mm]edia/*
