@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PresentationConverter
@@ -7,6 +8,9 @@ namespace PresentationConverter
     public partial class MainForm : Form
     {
         private MessageService _messageService;
+        private PathSelectorForm _pathSelectorForm;
+
+        private string _unityAppPath = "D:\\Projects\\Unity\\GUMRF_VR";
 
         public MainForm()
         {
@@ -16,9 +20,6 @@ namespace PresentationConverter
 
             _messageService = new MessageService(toolStripStatusLabel);
             _messageService.SentMessage("Готов к работе");
-
-            openFileDialog.Filter = "Презентация PowerPoint (*.pptx)|*.pptx|Презентация PowerPoint 93-2003 (*.ppt)|*.ppt|Все файлы (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
         }
 
         /// <summary>
@@ -39,7 +40,6 @@ namespace PresentationConverter
             comboBoxLocation.Sorted = true;
         }
 
-
         private void buttonSelectFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
@@ -47,12 +47,23 @@ namespace PresentationConverter
             string filename = openFileDialog.FileName;
 
             textBoxPath.Text = filename;
-            _messageService.SentMessage($"Загружено: {filename}");
+            _messageService.SentMessage($"Открыто: {filename}");
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            Converter.ConvertToImage(textBoxPath.Text, "");
+            var subfolder = "test";
+            Converter.ConvertToImage(textBoxPath.Text, $"{_unityAppPath}\\Assets\\Media\\{subfolder}");
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (!ConfigLoader.TempFileExists())
+            {
+                _pathSelectorForm = new PathSelectorForm();
+                _pathSelectorForm.ShowDialog();
+            }
+            
         }
     }
 }

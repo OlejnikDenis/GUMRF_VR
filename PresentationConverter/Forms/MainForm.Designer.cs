@@ -50,6 +50,9 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "Презентация PowerPoint (*.pptx)|*.pptx|Презентация PowerPoint 93-2003 (*.ppt)|*.p" +
+    "pt|Все файлы (*.*)|*.*";
+            this.openFileDialog.RestoreDirectory = true;
             // 
             // comboBoxLocation
             // 
@@ -76,6 +79,7 @@
             this.toolStripStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(5, 239);
             this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.ShowItemToolTips = true;
             this.statusStrip1.Size = new System.Drawing.Size(374, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
@@ -83,6 +87,7 @@
             // 
             // toolStripStatusLabel
             // 
+            this.toolStripStatusLabel.AutoToolTip = true;
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(88, 17);
             this.toolStripStatusLabel.Text = "Готов к работе";

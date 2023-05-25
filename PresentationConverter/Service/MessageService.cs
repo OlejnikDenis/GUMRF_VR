@@ -14,6 +14,8 @@ namespace PresentationConverter
         public void SentMessage(string message)
         {
             _toolStripLabel.Text = message;
+            _toolStripLabel.AutoToolTip = true;
+            _toolStripLabel.ToolTipText = message;
         }
 
     }
