@@ -92,7 +92,7 @@ namespace PresentationConverter
             var fileContent = File.ReadAllText(filePath);
 
             if (ValidateUnityFolder.isUnityFolder(fileContent)) return true;
-            return false
+            return false;
         }
     }
 }
