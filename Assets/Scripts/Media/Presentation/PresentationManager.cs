@@ -12,20 +12,20 @@ namespace Assets.Scripts.Media
     /// </summary>
     /// <remarks>
     /// The class uses the `ImageSearcher` component to find images in the specified folder and its subfolders, and the game object's renderer to display the images.
-    /// The class allows for manual control of the presentation using the `ShowNextImage()` and `ShowPreviousImage()` methods or automatic showing of images using the `AutoShowNext` property.
+    /// The class allows for manual control of the presentation using the `ShowNextImage()` and `ShowPreviousImage()` methods or automatic showing of images using the `SlideShow` property.
     /// </remarks>
     [RequireComponent(typeof(ImageSearcher), typeof(SlideTextInformer))]
     public class PresentationManager : MonoBehaviour
     {
-        [SerializeField] public bool AutoShowNext = true;
-        [SerializeField] [Range(1f, 20f)] public float AutoShowNextInterval = 5f;
+        [SerializeField] public bool SlideShow = true;
+        [SerializeField] [Range(1f, 20f)] private float slideShowInterval = 5f;
 
         public int currentImageIndex { get; private set; }
         public List<string> images { get; private set; }
         
         private Renderer _renderer;
         private ImageSearcher _imageSearcher;
-        private Coroutine _autoShowNextCoroutine;
+        private Coroutine _slideShowCoroutine;
         
         public Action<int> OnImageChanged;
         public Action<string> OnErrorReceived;
@@ -35,8 +35,8 @@ namespace Assets.Scripts.Media
             _renderer = GetComponent<Renderer>();
             _imageSearcher = GetComponent<ImageSearcher>();
             images = _imageSearcher.imagePaths;
-
-            ToggleAutoShowNext();
+ 
+            EnableSlideShow();
         }
         
         #region Presentation slide controller
@@ -97,38 +97,44 @@ namespace Assets.Scripts.Media
         }
 
         /// <summary>
-        /// Automatically shows the next image in the list of images every `switchIntervalSeconds`  while `AutoShowNext` is true.
+        /// Automatically shows the next image in the list of images every `switchIntervalSeconds`  while `SlideShow` is true.
         /// </summary>
-        /// <param name="switchIntervalSeconds">The number of seconds between each automatic image switch.</param>
         /// <returns>An IEnumerator used for starting a coroutine.</returns>
-        private IEnumerator ShowNextImageAutomatically(float switchIntervalSeconds)
+        private IEnumerator EnableSlideShow()
         {
-            while(AutoShowNext)
+            while (SlideShow)
             {
-                ShowNextImage(); 
-
-                yield return new WaitForSeconds(switchIntervalSeconds);
+                ShowNextImage();
+                yield return new WaitForSeconds(slideShowInterval);
             }
         }
         
         /// <summary>
         /// Enables or disables the automatic switching of images.
         /// </summary>
-        public void ToggleAutoShowNext()
+        public void ToggleSlideShow()
         {
-            // Set the AutoShowNext variable to the given value
-            AutoShowNext = !AutoShowNext;
+            SlideShow = !SlideShow;
 
-            // Start or stop the coroutine based on the value of AutoShowNext
-            if (AutoShowNext && _autoShowNextCoroutine == null)
+            if (SlideShow)
             {
-                _autoShowNextCoroutine = StartCoroutine(ShowNextImageAutomatically(AutoShowNextInterval));
+                _slideShowCoroutine = StartCoroutine(EnableSlideShow());
+                Debug.Log($"{this.name} Auto slideshow enabled!");
             }
-            else if (!AutoShowNext && _autoShowNextCoroutine != null)
+            else
             {
-                StopCoroutine(_autoShowNextCoroutine);
-                _autoShowNextCoroutine = null;
+                StopSlideShow();
+                Debug.Log($"{this.name} Auto slideshow disabled!");
             }
+        }
+
+        public void StopSlideShow()
+        {
+            if (_slideShowCoroutine == null) return;
+            
+            StopCoroutine(_slideShowCoroutine);
+            _slideShowCoroutine = null;
+            SlideShow = false;
         }
         
         #endregion

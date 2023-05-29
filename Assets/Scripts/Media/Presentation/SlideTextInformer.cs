@@ -23,7 +23,7 @@ namespace Assets.Scripts.Media
         {
             _textInformer = GetComponentInChildren<TextMeshProUGUI>();
             _presentation = GetComponent<PresentationManager>();
-
+            
             if (_presentation == null)
             {
                 SetInformerText("<color=red>Component <PresentationManager> does not found!</color>");
@@ -32,7 +32,9 @@ namespace Assets.Scripts.Media
             
             // Set the total count of images in the presentation.
             _totalCount = _presentation.images.Count;
-
+            
+            Debug.Log($"Object ({gameObject.name}) initialized with {_totalCount} photos.");
+            
             // Set the initial text of the text informer to show the current slide index and total count.
             SetInformerText($"{_presentation.currentImageIndex}/{_totalCount}");
 
@@ -65,7 +67,7 @@ namespace Assets.Scripts.Media
         /// <param name="message">The error message.</param>
         private void HandleErrorReceived(string message)
         {
-            Debug.LogError($"i got error {message}");
+            Debug.LogError($"[{gameObject.name}] {message}");
             SetInformerText($"<color=red>{message}</color>");
         }
         

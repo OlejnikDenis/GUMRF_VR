@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Scripts.Media
@@ -33,7 +34,7 @@ namespace Assets.Scripts.Media
         /// <param name="location">The subfolder name.</param>
         /// <param name="extension">File extension to search for, e.g. ".png" or ".jpg".</param>
         /// <returns>List of found file paths or null if the folder doesn't exist.</returns>
-        private static List<string> GetImagePaths(string path, string location, string extension)
+        private List<string> GetImagePaths(string path, string location, string extension)
         {
             var foundedPaths = new List<string>();
             var searchPath = Path.Combine(path, location);

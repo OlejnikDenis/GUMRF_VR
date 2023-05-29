@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ScreenshotCamera
   - Whiteboard
+  - ButtonNext
+  - ButtonPrevious
+  - ButtonAuto
   layers:
   - Default
   - TransparentFX
