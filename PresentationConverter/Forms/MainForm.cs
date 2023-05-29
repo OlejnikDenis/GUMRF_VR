@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 
 namespace PresentationConverter
@@ -55,6 +54,8 @@ namespace PresentationConverter
             var _unityAppPath = ConfigLoader.GetTempFileData();
 
             Converter.ConvertToImage(textBoxPath.Text, $"{_unityAppPath}\\Assets\\Media\\{subfolder}");
+            
+            _messageService.SentMessage("Готово. Все файлы успешно переконвертированы.");
         }
 
         private void MainForm_Load(object sender, EventArgs e)

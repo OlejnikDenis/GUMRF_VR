@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.Office.Core;
 using System.Windows.Forms;
 using PPTApplication = Microsoft.Office.Interop.PowerPoint.Application;
+using System.Runtime.CompilerServices;
 
 namespace PresentationConverter
 {
@@ -11,7 +12,7 @@ namespace PresentationConverter
         private static Presentation _presentation;
         private static PPTApplication _app;
 
-        public static void ConvertToImage(string inputFilePath, string outputFolderPath, string imageExtension = ".jpg")
+        public static void ConvertToImage(string inputFilePath, string outputFolderPath, string imageExtension = "jpg")
         {
             try
             {
@@ -27,9 +28,9 @@ namespace PresentationConverter
                     Slide slide = _presentation.Slides[i];
                     string outputPath = Path.Combine(outputFolderPath, $"Slide_{i:D3}.{imageExtension}");
 
-                    if (!Directory.Exists(outputPath))
+                    if (!Directory.Exists(outputFolderPath))
                     {
-                        Directory.CreateDirectory(outputPath);
+                        Directory.CreateDirectory(outputFolderPath);
                     }
 
                     if (File.Exists(outputPath))
@@ -37,6 +38,7 @@ namespace PresentationConverter
                         File.Delete(outputPath);
                     }
                     slide.Export(outputPath, imageExtension, slideWidth, slideHeight);
+
                 }
 
                 _presentation.Close();
