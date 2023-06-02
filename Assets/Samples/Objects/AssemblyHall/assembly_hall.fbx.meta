@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c66f9932f0561fb49b96d28a21105d4f
+guid: c110c6b69c167e34c852c081cd033922
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metallic Plates
-    second: {fileID: 2100000, guid: 37daf39232591f54cb29335ccdad4183, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 63c436529f1ee434fa6005f0bfa5e8a6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
