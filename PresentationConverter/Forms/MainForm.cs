@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PresentationConverter
@@ -8,12 +10,17 @@ namespace PresentationConverter
     {
         private MessageService _messageService;
         private PathSelectorForm _pathSelectorForm;
+        private string _unityAppPath;
+        private string _unityMediaPath;
 
         public MainForm()
         {
             InitializeComponent();
 
             SetupComboBoxValues();
+
+            _unityAppPath = ConfigLoader.GetTempFileData();
+            _unityMediaPath = Path.Combine(_unityAppPath, "Assets", "Media");
 
             _messageService = new MessageService(toolStripStatusLabel);
             _messageService.SentMessage("Готов к работе");
@@ -27,7 +34,8 @@ namespace PresentationConverter
             List<ComboBoxItem> items = new List<ComboBoxItem>()
             {
                 new ComboBoxItem { DisplayValue = "Актовый зал", HiddenValue = "AssemblyHall" },
-                new ComboBoxItem { DisplayValue = "Другое", HiddenValue = "Another"}
+                new ComboBoxItem { DisplayValue = "Другое", HiddenValue = "Another"},
+                new ComboBoxItem { DisplayValue = "Свой вариант", HiddenValue = ""}
             };
 
             comboBoxLocation.DisplayMember = "DisplayValue";
@@ -51,11 +59,10 @@ namespace PresentationConverter
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
             var subfolder = comboBoxLocation.SelectedValue.ToString();
-            var _unityAppPath = ConfigLoader.GetTempFileData();
 
-            Converter.ConvertToImage(textBoxPath.Text, $"{_unityAppPath}\\Assets\\Media\\{subfolder}");
+            Converter.ConvertToImage(textBoxPath.Text, Path.Combine(_unityMediaPath, subfolder));
             
-            _messageService.SentMessage("Готово. Все файлы успешно переконвертированы.");
+            _messageService.SentMessage("Готово. Все слайды успешно переконвертированы.");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -68,6 +75,29 @@ namespace PresentationConverter
                 _pathSelectorForm.ShowDialog();
             }
             _messageService.SentMessage("Готов к работе.");
+        }
+
+        private void toolStripViewFolder_Click(object sender, EventArgs e)
+        {
+            var explorerProcessName = "explorer.exe";
+            try
+            {
+                Process.Start(explorerProcessName, _unityMediaPath);
+                _messageService.SentMessage("Открыта папка \"Media\".");
+                
+            }
+            catch (Exception ex)
+            {
+                var fullErrorLog = $"Системе не удалось найти указанный путь: {_unityMediaPath}.\n\n" +
+                    $"Message: {ex.Message}.\n\n" +
+                    $"StackTrace:\n{ex.StackTrace}.";
+
+                MessageBox.Show(fullErrorLog, $"Процесс \"{explorerProcessName}\" вернул ошибку!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBoxLocation_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

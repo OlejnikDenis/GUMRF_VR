@@ -33,6 +33,7 @@
             this.textBoxPath = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripViewFolder = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelPath = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelLocation = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelProgramName = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -56,12 +57,14 @@
             // 
             // comboBoxLocation
             // 
+            this.comboBoxLocation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxLocation.FormattingEnabled = true;
             this.comboBoxLocation.Location = new System.Drawing.Point(3, 22);
             this.comboBoxLocation.Name = "comboBoxLocation";
             this.comboBoxLocation.Size = new System.Drawing.Size(368, 21);
             this.comboBoxLocation.Sorted = true;
             this.comboBoxLocation.TabIndex = 1;
+            this.comboBoxLocation.TextChanged += new System.EventHandler(this.comboBoxLocation_TextChanged);
             // 
             // textBoxPath
             // 
@@ -75,12 +78,15 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(5, 239);
+            this.toolStripStatusLabel,
+            this.toolStripViewFolder});
+            this.statusStrip1.Location = new System.Drawing.Point(5, 237);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.ShowItemToolTips = true;
-            this.statusStrip1.Size = new System.Drawing.Size(374, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(374, 24);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
@@ -89,8 +95,20 @@
             // 
             this.toolStripStatusLabel.AutoToolTip = true;
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(88, 17);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(266, 19);
+            this.toolStripStatusLabel.Spring = true;
             this.toolStripStatusLabel.Text = "Готов к работе";
+            this.toolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripViewFolder
+            // 
+            this.toolStripViewFolder.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripViewFolder.Name = "toolStripViewFolder";
+            this.toolStripViewFolder.Size = new System.Drawing.Size(93, 19);
+            this.toolStripViewFolder.Text = "Открыть папку";
+            this.toolStripViewFolder.Click += new System.EventHandler(this.toolStripViewFolder_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -101,7 +119,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonSubmit, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelProgramName, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 5);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -111,7 +129,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(374, 234);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(374, 232);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel3
@@ -155,7 +174,7 @@
             this.buttonSelectFile.Name = "buttonSelectFile";
             this.buttonSelectFile.Size = new System.Drawing.Size(88, 23);
             this.buttonSelectFile.TabIndex = 2;
-            this.buttonSelectFile.Text = "Select";
+            this.buttonSelectFile.Text = "Выбрать";
             this.buttonSelectFile.UseVisualStyleBackColor = true;
             this.buttonSelectFile.Click += new System.EventHandler(this.buttonSelectFile_Click);
             // 
@@ -163,11 +182,11 @@
             // 
             this.buttonSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSubmit.Enabled = false;
-            this.buttonSubmit.Location = new System.Drawing.Point(127, 184);
+            this.buttonSubmit.Location = new System.Drawing.Point(127, 183);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(118, 39);
             this.buttonSubmit.TabIndex = 3;
-            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.Text = "Конвертировать";
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
@@ -196,23 +215,23 @@
             this.labelLocation.Location = new System.Drawing.Point(3, 3);
             this.labelLocation.Margin = new System.Windows.Forms.Padding(3);
             this.labelLocation.Name = "labelLocation";
-            this.labelLocation.Size = new System.Drawing.Size(85, 13);
+            this.labelLocation.Size = new System.Drawing.Size(51, 13);
             this.labelLocation.TabIndex = 7;
-            this.labelLocation.Text = "Выбор локации";
+            this.labelLocation.Text = "Локация";
             this.labelLocation.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label1
+            // labelProgramName
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 24);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelProgramName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelProgramName.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.labelProgramName, 3);
+            this.labelProgramName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelProgramName.Location = new System.Drawing.Point(3, 17);
+            this.labelProgramName.Name = "labelProgramName";
+            this.labelProgramName.Size = new System.Drawing.Size(368, 24);
+            this.labelProgramName.TabIndex = 5;
+            this.labelProgramName.Text = "Конвертер презентаций для VR";
+            this.labelProgramName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -222,12 +241,13 @@
             this.ClientSize = new System.Drawing.Size(384, 261);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.ShowIcon = false;
-            this.Text = "GUMRF VR Converter";
+            this.Text = "Конвертер презентаций";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -238,7 +258,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -255,7 +274,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label labelPath;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelProgramName;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripViewFolder;
     }
 }
 
