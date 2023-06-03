@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene_GUMRF_Lobby.unity
     guid: d4fdd217a45e66c4d821a1b0db4619b7
   - enabled: 1
-    path: Assets/Scenes/Scene_GUMRF_170.unity
+    path: Assets/__Unnecessary/Scenes/Scene_GUMRF_170.unity
     guid: b1a8a6e7794aeaf46a84296680287eb1
   - enabled: 1
     path: Assets/Scenes/Scene_Presentation.unity
