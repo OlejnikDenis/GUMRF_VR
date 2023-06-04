@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 918144494}
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -7044,6 +7044,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AssemblyHall_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032271727170414769, guid: 6a837e0c1ef278b46b1a1d6021cccda5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032271727170414769, guid: 6a837e0c1ef278b46b1a1d6021cccda5,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
