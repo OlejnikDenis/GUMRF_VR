@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-
 namespace MediaConverter
 {
     /// <summary>
@@ -19,6 +18,11 @@ namespace MediaConverter
             var selected = sidebar.SelectedItem as NavButton;
 
             navframe.Navigate(selected?.Navlink);
+        }
+
+        private void NavButton_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
