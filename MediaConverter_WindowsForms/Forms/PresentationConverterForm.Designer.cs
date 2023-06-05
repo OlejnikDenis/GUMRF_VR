@@ -1,6 +1,6 @@
 ﻿namespace PresentationConverter
 {
-    partial class MainForm
+    partial class PresentationConverterForm
     {
         /// <summary>
         /// Required designer variable.
@@ -233,7 +233,7 @@
             this.labelProgramName.Text = "Конвертер презентаций для VR";
             this.labelProgramName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MainForm
+            // PresentationConverterForm
             // 
             this.AcceptButton = this.buttonSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,7 +243,7 @@
             this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "PresentationConverterForm";
             this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.ShowIcon = false;
             this.Text = "Конвертер презентаций";

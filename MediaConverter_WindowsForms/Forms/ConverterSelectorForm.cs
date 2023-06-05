@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace PresentationConverter
 {
-    public partial class PathSelectorForm : Form
+    public partial class ConverterSelectorForm : Form
     {
         public string SelectedAppFilePath { get; private set; }
         public string SelectedAppFolderPath { get; private set; }
 
-        public PathSelectorForm()
+        public ConverterSelectorForm()
         {
             InitializeComponent();
         }

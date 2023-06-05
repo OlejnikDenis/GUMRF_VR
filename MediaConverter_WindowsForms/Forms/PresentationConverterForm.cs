@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace PresentationConverter
 {
-    public partial class MainForm : Form
+    public partial class PresentationConverterForm : Form
     {
         private MessageService _messageService;
-        private PathSelectorForm _pathSelectorForm;
+        private ConverterSelectorForm _pathSelectorForm;
         private string _unityAppPath;
         private string _unityMediaPath;
 
-        public MainForm()
+        public PresentationConverterForm()
         {
             InitializeComponent();
 
@@ -71,7 +71,7 @@ namespace PresentationConverter
             {
                 _messageService.SentMessage("Файл конфигурации не найден.");
 
-                _pathSelectorForm = new PathSelectorForm();
+                _pathSelectorForm = new ConverterSelectorForm();
                 _pathSelectorForm.ShowDialog();
             }
             _messageService.SentMessage("Готов к работе.");
