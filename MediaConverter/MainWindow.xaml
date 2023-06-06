@@ -22,7 +22,7 @@
         </ListBox>
         
         <local:NavButton Margin="0, 0, 0, 10" VerticalAlignment="Bottom" Height="37" Width="37" PreviewMouseLeftButtonDown="NavButton_PreviewMouseLeftButtonDown" Icon="Resources/Exit.png"/>
-        
+
         <Frame Grid.Column="1" x:Name="navframe" NavigationUIVisibility="Hidden" Background="#e9ecef"/>
 
     </Grid>
