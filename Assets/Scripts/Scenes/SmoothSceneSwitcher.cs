@@ -14,7 +14,12 @@ public class SmoothSceneSwitcher : MonoBehaviour
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
 
-    public void FadeCanvasGroupWrapper(string sceneName)
+    public void LoadScene(string sceneName)
+    {
+        FadeCanvasGroupWrapper(sceneName);
+    }
+    
+    private void FadeCanvasGroupWrapper(string sceneName)
     {
         // Is there a scene with that name?
         if (string.IsNullOrEmpty(sceneName))
