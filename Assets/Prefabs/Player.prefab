@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 1670256628, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_ModelPrefab
       value: 
-      objectReference: {fileID: 5686134208185136530, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+      objectReference: {fileID: 2896886583821707416, guid: b980494ac8987db4c8e8cd0294e7f390,
         type: 3}
     - target: {fileID: 1670256628, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_UIScrollAction.m_Action.m_Id
