@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,22 @@ public class SmoothSceneSwitcher : MonoBehaviour
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
 
+    [Obsolete("Method 'LoadScene' is depricated, please use 'FadeCanvasGroupWrapper' instead.")]
     public void LoadScene(string sceneName)
     {
         FadeCanvasGroupWrapper(sceneName);
     }
     
+    public void ExitGameWithFade()
+    {
+        StartCoroutine(FadeCanvasGroup(true, null));
+        StartCoroutine(ExitApplication());
+    }
+    
+    /// <summary>
+    /// Initiates a smooth scene transition by fading the elements of the CanvasGroup in or out, depending on the target scene.
+    /// </summary>
+    /// <param name="sceneName">The name of the target scene to switch to.</param>
     private void FadeCanvasGroupWrapper(string sceneName)
     {
         // Is there a scene with that name?
@@ -92,7 +104,9 @@ public class SmoothSceneSwitcher : MonoBehaviour
             }
             // Sometimes, the value is very close, but not equal to 1. This is a fix
             _canvasGroup.alpha = 1;
-            SceneManager.LoadSceneAsync(sceneName);
+            
+            if (!string.IsNullOrEmpty(sceneName))
+                SceneManager.LoadSceneAsync(sceneName);
         }
         else
         {
@@ -107,5 +121,16 @@ public class SmoothSceneSwitcher : MonoBehaviour
             _canvasGroup.alpha = 0;
             sceneSwitcherCanvas.SetActive(false);
         }
+    }
+
+    private IEnumerator ExitApplication()
+    {
+        yield return new WaitForSeconds(transitionTime);
+        
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
