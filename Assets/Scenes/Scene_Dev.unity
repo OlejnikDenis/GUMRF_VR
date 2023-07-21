@@ -351,6 +351,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5cee79014d7d4b48844f56de725ba70, type: 3}
+--- !u!114 &720317761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8394317152290339006, guid: d5cee79014d7d4b48844f56de725ba70,
+    type: 3}
+  m_PrefabInstance: {fileID: 720317760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa80baa0bf61e643a5439239a712858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &720317762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8394317152290339007, guid: d5cee79014d7d4b48844f56de725ba70,
@@ -390,12 +402,6 @@ Transform:
   - {fileID: 2125434832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1192427260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8394317152290339005, guid: d5cee79014d7d4b48844f56de725ba70,
-    type: 3}
-  m_PrefabInstance: {fileID: 720317760}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213468821
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +447,7 @@ GameObject:
   - component: {fileID: 1281679667}
   - component: {fileID: 1281679666}
   - component: {fileID: 1281679670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,6 +767,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1138715709}
     m_Modifications:
+    - target: {fileID: 289687359666047183, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 720317761}
+    - target: {fileID: 289687359666047183, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasGroupWrapper
+      objectReference: {fileID: 0}
     - target: {fileID: 2061470286970361143, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -841,6 +857,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2958535175848002086, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 720317761}
+    - target: {fileID: 2958535175848002086, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasGroupWrapper
+      objectReference: {fileID: 0}
     - target: {fileID: 3301204760849451629, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_Name
@@ -906,6 +932,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6667991286534784314, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 720317761}
+    - target: {fileID: 6667991286534784314, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasGroupWrapper
+      objectReference: {fileID: 0}
     - target: {fileID: 7574054995117560363, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -940,11 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1192427260}
+      objectReference: {fileID: 720317761}
     - target: {fileID: 8140852386634885056, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: FadeCanvasGroupWrapper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

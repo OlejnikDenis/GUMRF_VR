@@ -255,6 +255,14 @@ PrefabInstance:
       propertyPath: m_IsTrackedAction.m_Action.m_Name
       value: Is Tracked
       objectReference: {fileID: 0}
+    - target: {fileID: 1319746312, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Velocity
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319746312, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2147483648
+      objectReference: {fileID: 0}
     - target: {fileID: 1670256628, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Model
       value: 
@@ -406,6 +414,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Height
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063236115447648281, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+        type: 3}
+      propertyPath: m_UIScrollAction.m_Action.m_Id
+      value: edf76a71-34b1-4148-8ed6-6f9e486ffbb4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063236115447648281, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+        type: 3}
+      propertyPath: m_IsTrackedAction.m_Action.m_Id
+      value: df2c8bea-6e7c-4b75-b7f4-ec99f4cd4192
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063236115447648281, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+        type: 3}
+      propertyPath: m_UIScrollAction.m_Action.m_Name
+      value: UI Scroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063236115447648281, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
+        type: 3}
+      propertyPath: m_IsTrackedAction.m_Action.m_Name
+      value: Is Tracked
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3413953552303518521, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}

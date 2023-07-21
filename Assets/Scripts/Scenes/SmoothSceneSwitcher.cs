@@ -15,12 +15,6 @@ public class SmoothSceneSwitcher : MonoBehaviour
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
 
-    [Obsolete("Method 'LoadScene' is depricated, please use 'FadeCanvasGroupWrapper' instead.")]
-    public void LoadScene(string sceneName)
-    {
-        FadeCanvasGroupWrapper(sceneName);
-    }
-    
     public void ExitGameWithFade()
     {
         StartCoroutine(FadeCanvasGroup(true, null));
@@ -31,7 +25,7 @@ public class SmoothSceneSwitcher : MonoBehaviour
     /// Initiates a smooth scene transition by fading the elements of the CanvasGroup in or out, depending on the target scene.
     /// </summary>
     /// <param name="sceneName">The name of the target scene to switch to.</param>
-    private void FadeCanvasGroupWrapper(string sceneName)
+    public void FadeCanvasGroupWrapper(string sceneName)
     {
         // Is there a scene with that name?
         if (string.IsNullOrEmpty(sceneName))
