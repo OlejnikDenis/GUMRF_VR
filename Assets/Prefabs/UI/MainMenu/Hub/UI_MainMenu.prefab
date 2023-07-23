@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2757089265782453075}
   - component: {fileID: 2342834178771058555}
   - component: {fileID: 5412328660176520377}
-  - component: {fileID: 3084583070061142690}
+  - component: {fileID: 4821373493347456601}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 10
   m_PresetInfoIsWorld: 1
---- !u!114 &3084583070061142690
+--- !u!114 &4821373493347456601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,14 +96,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210463287448155066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &2285895630229841937
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ RectTransform:
   m_Children:
   - {fileID: 2998588276284679462}
   - {fileID: 1755918655633639748}
-  - {fileID: 2660348255667263065}
+  - {fileID: 5361143128404736262}
   m_Father: {fileID: 2757089265782453075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -607,7 +609,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224f9ad4a4b064c4885a899cf9d5d4d9, type: 3}
---- !u!224 &2660348255667263065 stripped
+--- !u!224 &5361143128404736262 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7966287069753880414, guid: 224f9ad4a4b064c4885a899cf9d5d4d9,
     type: 3}

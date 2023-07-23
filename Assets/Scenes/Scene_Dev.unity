@@ -434,6 +434,50 @@ Transform:
   - {fileID: 410087041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1243841144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243841146}
+  - component: {fileID: 1243841145}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1243841145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243841144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e63be844c9d6fb49936ba0e019cee1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1243841146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243841144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2629724, y: 1.1129752, z: 5.801454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281679665
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +821,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FadeCanvasGroupWrapper
       objectReference: {fileID: 0}
+    - target: {fileID: 289687359666047183, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Scene_GUMRF_AssemblyHall
+      objectReference: {fileID: 0}
     - target: {fileID: 2061470286970361143, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -932,6 +981,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5860948253872627582, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860948253872627582, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 720317761}
+    - target: {fileID: 5860948253872627582, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasGroupWrapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860948253872627582, guid: 5d62ad4087d47014c9def366e726bf18,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Scene_Hub
+      objectReference: {fileID: 0}
     - target: {fileID: 6667991286534784314, guid: 5d62ad4087d47014c9def366e726bf18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1080,3 +1149,4 @@ SceneRoots:
   - {fileID: 1138715709}
   - {fileID: 1500504970}
   - {fileID: 7949242864968234}
+  - {fileID: 1243841146}
